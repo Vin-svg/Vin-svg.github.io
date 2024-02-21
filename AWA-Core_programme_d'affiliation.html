@@ -7,14 +7,23 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #calculator-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
         }
         label {
             display: block;
             margin-bottom: 5px;
         }
         input[type="range"] {
-            width: 50%;
+            width: 100%;
             padding: 8px;
             margin-bottom: 15px;
             box-sizing: border-box;
@@ -32,38 +41,33 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        #result {
-            margin-top: 15px;
-            font-weight: bold;
-        }
-        #clientCount {
-            margin-top: 10px;
-            font-weight: bold;
-        }
+        #result,
+        #clientCount,
         #affiliatePercentage {
-            margin-top: 10px;
+            margin-top: 15px;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h2>Calculateur de Revenu</h2>
+    <div id="calculator-container">
+        <h2>Calculateur de Revenu</h2>
 
-    <label for="clientSlider">Nombre de clients :</label>
-    <input type="range" id="clientSlider" min="0" max="1000" step="1" value="0">
-    <div id="clientCount">Nombre de clients sélectionné : 0</div>
+        <div id="clientCount">0 Clients</div>
+        <input type="range" id="clientSlider" min="0" max="1000" step="1" value="0">
 
-    <div id="result"></div>
-    <div id="affiliatePercentage"></div>
+        <div id="result"></div>
+        <div id="affiliatePercentage"></div>
+    </div>
 
     <script>
         var clientSlider = document.getElementById("clientSlider");
         var clientCountDisplay = document.getElementById("clientCount");
-        clientCountDisplay.innerHTML = "Nombre de clients sélectionné : " + clientSlider.value;
+        clientCountDisplay.innerHTML = "0 Clients";
 
         clientSlider.addEventListener("input", function() {
-            clientCountDisplay.innerHTML = "Nombre de clients sélectionné : " + clientSlider.value;
+            clientCountDisplay.innerHTML = clientSlider.value + " Clients";
             updateIncomeData();
         });
 
