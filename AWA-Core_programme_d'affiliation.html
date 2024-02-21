@@ -1,127 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de Revenu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        #calculator-container {
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="range"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            background-color: #008000; /* Couleur verte */
-            border: none;
-            outline: none;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #ffffff; /* Couleur blanche pour le pouce */
-            border: 2px solid #008000; /* Bordure verte pour le pouce */
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        #result,
-        #clientCount,
-        #affiliatePercentage {
-            margin-top: 15px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programme GSS</title>
 </head>
 <body>
 
-    <div id="calculator-container">
-        <h2>Calculateur de Revenu</h2>
+  <p><strong>Chaque sté individuelle peut souscrire et s’inscrire au programme GSS</strong></p>
 
-        <div id="clientCount">0 Clients</div>
-        <input type="range" id="clientSlider" min="0" max="1000" step="1" value="0">
+  <p>Chaque entité devra fournir les éléments suivants:</p>
+  <ul>
+    <li>Enseigne publique</li>
+    <li>Adresse complète, emplacement géographique (pour cartographie)</li>
+    <li>Contacts (mails, tél)</li>
+    <li>Types d’activités proposées (services, prog, étude, dépannage…)</li>
+    <li>Spécialisations</li>
+    <li>Marques représentées</li>
+    <li>Informations commerciales: expérience, rayon d’action, nb d’employés..</li>
+    <li>RIB, IBAN ou SWIFT pour les transferts bancaires et versement des redevances</li>
+  </ul>
 
-        <div id="result"></div>
-        <div id="affiliatePercentage"></div>
-    </div>
+  <p>Chaque partenaire aura comme droits:</p>
+  <ul>
+    <li>Un accès privilégié au Helpdesk AWA-Core (adresse mail 2)</li>
+    <li>Un support complet et des accès aux informations techniques du logiciel</li>
+    <li>Un accès à sa liste de clients déclarée sur AWA-Core</li>
+    <li>Une redevance de 25% des cotisations mensuelles de chaque client</li>
+    <li>Une redevance de 30% si le portefeuille clientèle dépasse les 500 licences</li>
+  </ul>
 
-    <script>
-        var clientSlider = document.getElementById("clientSlider");
-        var clientCountDisplay = document.getElementById("clientCount");
-        clientCountDisplay.innerHTML = "0 Clients";
+  <p>Chaque partenaire aura comme devoirs:</p>
+  <ul>
+    <li>La déclaration de toute nouvelle installation AWA-Core avec les coordonnées bancaires du client pour la facturation automatique.</li>
+    <li>L’interdiction d’utiliser une licence sur plusieurs postes différents même s’il s’agit du même client et de la même installation. Chaque installation AWA-Core fera l’objet d’une licence unique et d’une facturation séparée.</li>
+    <li>Faire une déclaration de résiliation au programme GSS s’il doit quitter pour raisons commerciales ou autres.</li>
+  </ul>
 
-        clientSlider.addEventListener("input", function() {
-            clientCountDisplay.innerHTML = clientSlider.value + " Clients";
-            updateIncomeData();
-        });
+  <p><strong>AVANTAGES:</strong></p>
+  <p>Le piratage d'AWA-Core devient caduque car, un installateur n’aura aucun intérêt à dupliquer une installation existante vers un autre PC. Il n’y gagne en rien, car il n’y aura toujours qu’une seule redevance versée. Seul le client gagne car il a 2 AWA-Core qui tournent pour le prix d’un.</p>
 
-        function updateIncomeData() {
-            var clients = clientSlider.value;
-
-            if (clients) {
-                var licenseCost = 40;
-                var totalRevenue = clients * licenseCost;
-                var affiliateCommissionPercentage = clients > 500 ? 30 : 25;
-                var affiliateCommission = totalRevenue * (affiliateCommissionPercentage / 100);
-                var netIncome = totalRevenue - affiliateCommission;
-
-                document.getElementById("result").innerHTML = "Revenu net pour l'affilié : " + netIncome.toFixed(2) + " €";
-                document.getElementById("affiliatePercentage").innerHTML = "Pourcentage de revenus d'affiliation : " + affiliateCommissionPercentage + "%";
-            } else {
-                document.getElementById("result").innerHTML = "Veuillez sélectionner le nombre de clients.";
-            }
-        }
-    </script>
-
-
-    <h2>Inscription au Programme GSS</h2>
-
-    <p>Chaque société individuelle peut souscrire et s'inscrire au programme GSS.</p>
-    <p>Chaque entité devra fournir les éléments suivants:</p>
-    <ul>
-        <li>Enseigne publique</li>
-        <li>Adresse complète, emplacement géographique (pour cartographie)</li>
-        <li>Contacts (mails, tél)</li>
-        <li>Types d'activités proposées (services, prog, étude, dépannage...)</li>
-        <li>Spécialisations</li>
-        <li>Marques représentées</li>
-        <li>Informations commerciales: expérience, rayon d'action, nb d'employés..</li>
-        <li>RIB, IBAN ou SWIFT pour les transferts bancaires et versement des redevances</li>
-    </ul>
-
-    <p>Chaque partenaire aura comme droits:</p>
-    <ul>
-        <li>Un accès privilégié au Helpdesk AWA-Core (adresse mail 2)</li>
-        <li>Un support complet et des accès aux informations techniques du logiciel</li>
-        <li>Un accès à sa liste de clients déclarée sur AWA-Core</li>
-        <li>Une redevance de 25% des cotisations mensuelles de chaque client</li>
-        <li>Une redevance de 30% si le portefeuille clientèle dépasse les 500 licences</li>
-    </ul>
-
-    <p>Chaque partenaire aura comme devoirs:</p>
-    <ul>
-        <li>La déclaration de toute nouvelle installation AWA-Core avec les coordonnées bancaires du client pour la facturation automatique.</li>
-        <li>L'interdiction d'utiliser une licence sur plusieurs postes différents même s'il s'agit du même client et de la même installation. Chaque installation AWA-Core fera l'objet d'une licence unique et d'une facturation séparée.</li>
-        <li>Faire une déclaration de résiliation au programme GSS s'il doit quitter pour raisons commerciales ou autres.</li>
-    </ul>
-
-    <h3>AVANTAGES:</h3>
-    <p>Le piratage d'AWA-Core devient caduque car un installateur n'aura aucun intérêt à dupliquer une installation existante vers un autre PC. Il n'y gagne en rien, car il n'y aura toujours qu'une seule redevance versée. Seul le client gagne car il a 2 AWA-Core qui tournent pour le prix d'un.</p>
 </body>
 </html>
